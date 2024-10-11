@@ -31,7 +31,7 @@ public class MessageController {
         this.userService = userService;
     }
 
-    @GetMapping(path = "/tickets/messages/{ticket.id}")
+    @GetMapping(path = "/tickets/messages/{ticketId}")
     public String showForm(Model model) {
         model.addAttribute("message", new Message());
 //        model.addAttribute("messageList", messageService.findAll());

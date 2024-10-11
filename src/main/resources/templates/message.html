@@ -10,9 +10,7 @@
 <form th:action="@{/messages}" th:method="post" th:object="${message}">
     <input type="text" th:id="message" th:name="message" th:field="*{content}">
 
-    <select name="ticketId" id="ticketId">
-        <option th:each="ticket : ${ticketList}" th:value="${ticket.id}" th:text="${ticket.title}"></option>
-    </select>
+    <input type="text" name="ticketId" id="ticketId" th:value="${ticketId}" hidden="hidden">
 
     <select name="username" id="username">
         <option th:each="user : ${userList}" th:value="${user.username}" th:text="${user.username}"></option>

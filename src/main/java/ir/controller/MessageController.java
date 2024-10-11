@@ -31,16 +31,6 @@ public class MessageController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public String showForm(Model model) {
-        model.addAttribute("message", new Message());
-        model.addAttribute("messageList", messageService.findAll());
-        model.addAttribute("ticketList", ticketService.findAll());
-        model.addAttribute("userList", userService.findAll());
-        return "message";
-    }
-
-
     @PostMapping
     public String saveMessage(Message message, @ModelAttribute("ticketId") Long ticketId, @ModelAttribute("username")String username) {
         try {

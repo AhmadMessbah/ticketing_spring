@@ -10,7 +10,6 @@ import ir.service.RoleService;
 import ir.service.TicketService;
 import ir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.SpringApplication;
 
 import java.time.LocalDateTime;
 

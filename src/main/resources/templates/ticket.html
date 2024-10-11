@@ -45,6 +45,7 @@
         <td th:text="${ticket.user.getUsername()}"></td>
         <td>
             <button th:data-name="${ticket.id}" th:onclick="|remove(this.getAttribute('data-name'))|">Remove</button>
+            <button th:data-name="${ticket.id}" th:onclick="|openMessages(this.getAttribute('data-name'))|">Open</button>
         </td>
     </tr>
     </tbody>
@@ -57,6 +58,11 @@
         });
         window.location.replace("/tickets");
     }
+    function openMessages(id){
+
+        window.location.replace("/tickets/messages/" + id);
+    }
+
 </script>
 </body>
 </html>

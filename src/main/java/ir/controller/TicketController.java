@@ -32,6 +32,7 @@ public class TicketController {
         model.addAttribute("message", new Message());
         model.addAttribute("messageList", messageService.findByTicketId(ticketId));
         model.addAttribute("userList", userService.findAll());
+        model.addAttribute("ticketId", ticketId);
         return "message";
     }
 

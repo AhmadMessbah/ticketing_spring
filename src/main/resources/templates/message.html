@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Message</title>
+</head>
+<body>
+
+<h1>Message</h1>
+<form th:action="@{/messages}" th:method="post" th:object="${message}">
+    <input type="text" th:id="message" th:name="message" th:field="*{content}">
+
+    <select name="ticketId" id="ticketId">
+        <option th:each="ticket : ${ticketList}" th:value="${ticket.id}" th:text="${ticket.title}"></option>
+    </select>
+
+    <select name="username" id="username">
+        <option th:each="user : ${userList}" th:value="${user.username}" th:text="${user.username}"></option>
+    </select>
+
+    <input type="submit" value="Save">
+</form>
+
+
+<!--<h2 th:dir="rtl" th:if="${messageList.isEmpty()}">No Content RTL</h2>-->
+<!--<h2 th:dir="ltr" th:if="${not messageList.isEmpty()}">No Content LTR</h2>-->
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Content</th>
+        <th>DateTime</th>
+        <th>Ticket</th>
+        <th>User</th>
+        <th>Operation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="message:${messageList}">
+        <td th:text="${message.id}"></td>
+        <td th:text="${message.content}"></td>
+        <td th:text="${message.dateTime}"></td>
+        <td th:text="${message.ticket.title}"></td>
+        <td th:text="${message.user.username}"></td>
+        <td>
+            <button th:data-name="${message.id}" th:onclick="|remove(this.getAttribute('data-name'))|">Remove</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function remove(id) {
+        fetch("/messages/" + id, {
+            method: "DELETE"
+        });
+        window.location.replace("/messages");
+    }
+</script>
+
+</body>
+</html>

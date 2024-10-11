@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Role</title>
+</head>
+<body>
+<h1>Roles</h1>
+<form th:action="@{/roles}" th:method="post" th:object="${role}">
+    <input type="text" th:id="roleName" th:name="roleName" th:field="*{roleName}">
+    <input type="submit" value="Save">
+</form>
+
+<h2 th:dir="rtl" th:if="${roleList.isEmpty()}">No Content RTL</h2>
+<h2 th:dir="ltr" th:if="${not roleList.isEmpty()}">No Content LTR</h2>
+<table th:if="${not roleList.isEmpty()}">
+    <thead>
+    <tr>
+        <th>RoleName</th>
+        <th> Operation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="role:${roleList}">
+        <td th:text="${role.roleName}"></td>
+        <td>
+            <button th:data-name="${role.roleName}" th:onclick="|remove(this.getAttribute('data-name'))|">Remove</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function remove(id){
+        fetch("/roles/"+id,{
+            method:"DELETE"
+        });
+        window.location.replace("/roles");
+    }
+</script>
+</body>
+</html>

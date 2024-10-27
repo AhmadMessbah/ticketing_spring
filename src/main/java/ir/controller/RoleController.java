@@ -1,6 +1,6 @@
 package ir.controller;
 
-import ir.model.Role;
+import ir.model.entity.Role;
 import ir.service.RoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -26,8 +26,15 @@ public class RoleController {
     }
 
     @PostMapping
-    public String saveRole(Role role) {
+    public String saveRole(@ModelAttribute(name = "name") String name) {
         try{
+            Role role =
+                    Role
+                            .builder()
+                            .roleName(Role.RoleName.OTHER)
+                            .name(name)
+                            .build();
+
             roleService.save(role);
             log.info("Role Saved");
         }catch (Exception e) {

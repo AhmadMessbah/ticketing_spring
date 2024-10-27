@@ -16,15 +16,15 @@
     </select>
     <input type="datetime-local" name="dateTime" id="dateTime" th:field="*{dateTime}">
 
-    <select name="user" id="user">
-        <option th:each="u : ${allUsers}" th:value="${u.username}" th:text="${u.username}"></option>
-    </select>
+<!--    <select name="user" id="user">-->
+<!--        <option th:each="u : ${allUsers}" th:value="${u.username}" th:text="${u.username}"></option>-->
+<!--    </select>-->
 
     <input type="submit" value="Save">
 
 </form>
 
-<h2 th:dir="rtl" th:if="${tickets.isEmpty()}">No Content RTL</h2>
+<h2 th:dir="ltr" th:if="${tickets.isEmpty()}">No Content</h2>
 <table th:if="${not tickets.isEmpty()}">
     <thead>
     <tr>
@@ -50,6 +50,9 @@
     </tr>
     </tbody>
 </table>
+
+<a th:href="@{/panel}">Panel</a>
+
 
 <script>
     function remove(id){

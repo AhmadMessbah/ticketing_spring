@@ -1,7 +1,7 @@
 package ir.service;
 
-import ir.model.Role;
-import ir.model.User;
+import ir.model.entity.Role;
+import ir.model.entity.User;
 
 import java.util.List;
 
@@ -13,6 +13,6 @@ public interface UserService {
     boolean existsByUsername(String username);
     List<User> findAll();
     List<User> findByRole(Role role);
-    List<User> findByRoleName(String roleName);
+    List<User> findByRoleName(Role.RoleName roleName);
     User findByUsernameAndPassword(String username, String password);
 }

@@ -1,7 +1,7 @@
 package ir.service.impl;
 
-import ir.model.Role;
-import ir.model.User;
+import ir.model.entity.Role;
+import ir.model.entity.User;
 import ir.repository.UserRepository;
 import ir.service.UserService;
 import org.springframework.stereotype.Service;
@@ -50,12 +50,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findByRole(Role role) {
-        return userRepository.findByRole(role);
+        return userRepository.findByRoleSetContaining(role);
     }
 
     @Override
-    public List<User> findByRoleName(String roleName) {
-        return userRepository.findByRoleRoleName(roleName);
+    public List<User> findByRoleName(Role.RoleName roleName) {
+        return userRepository.findByRoleSetRoleName(roleName);
     }
 
     @Override

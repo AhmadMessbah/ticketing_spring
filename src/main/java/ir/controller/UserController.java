@@ -1,15 +1,15 @@
 package ir.controller;
 
-import ir.model.Role;
-import ir.model.User;
+import ir.model.entity.Role;
+import ir.model.entity.User;
 import ir.service.RoleService;
 import ir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,10 +19,12 @@ public class UserController
 {
     private final UserService userService;
     private final RoleService roleService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, RoleService roleService) {
+    public UserController(UserService userService, RoleService roleService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.roleService = roleService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -35,8 +37,11 @@ public class UserController
     }
 
     @PostMapping()
-    public String saveUser(User user)
+    public String saveUser(User user, @ModelAttribute("roleName")Role.RoleName roleName)
     {
+        Role role = roleService.findByRoleName(roleName);
+        user.addRole(role);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.save(user);
         log.info("User Saved...!");
         return "redirect:users";
@@ -51,7 +56,7 @@ public class UserController
     }
 
     @GetMapping("/{roleName}")
-    public String findByRoleName(Model model, @PathVariable("roleName") String roleName)
+    public String findByRoleName(Model model, Role.RoleName roleName)
     {
         List<User> userList = userService.findByRoleName(roleName);
         model.addAttribute("userList", userList);

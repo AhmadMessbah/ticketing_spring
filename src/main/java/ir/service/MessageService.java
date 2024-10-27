@@ -1,8 +1,8 @@
 package ir.service;
 
-import ir.model.Message;
-import ir.model.Ticket;
-import ir.model.User;
+import ir.model.entity.Message;
+import ir.model.entity.Ticket;
+import ir.model.entity.User;
 
 import java.util.List;
 

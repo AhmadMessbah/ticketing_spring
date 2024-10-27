@@ -1,7 +1,7 @@
 package ir.service;
 
-import ir.model.Ticket;
-import ir.model.User;
+import ir.model.entity.Ticket;
+import ir.model.entity.User;
 import ir.model.enums.TicketStatus;
 
 import java.util.List;

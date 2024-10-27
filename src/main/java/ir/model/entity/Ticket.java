@@ -1,4 +1,4 @@
-package ir.model;
+package ir.model.entity;
 
 import ir.model.enums.TicketStatus;
 import jakarta.persistence.*;

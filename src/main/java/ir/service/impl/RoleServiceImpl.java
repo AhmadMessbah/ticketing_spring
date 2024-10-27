@@ -1,6 +1,6 @@
 package ir.service.impl;
 
-import ir.model.Role;
+import ir.model.entity.Role;
 import ir.repository.RoleRepository;
 import ir.service.RoleService;
 import org.springframework.stereotype.Service;
@@ -31,8 +31,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public Role findByRoleName(String roleName) {
-        return roleRepository.findById(roleName).orElse(null);
+    public Role findByRoleName(Role.RoleName roleName) {
+        return roleRepository.findByRoleName(roleName);
     }
 
     @Override

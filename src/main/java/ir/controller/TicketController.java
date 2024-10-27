@@ -1,17 +1,19 @@
 package ir.controller;
 
-import ir.model.Message;
-import ir.model.Ticket;
-import ir.model.User;
+import ir.model.entity.Message;
+import ir.model.entity.Role;
+import ir.model.entity.Ticket;
+import ir.model.entity.User;
 import ir.model.enums.TicketStatus;
 import ir.service.MessageService;
 import ir.service.TicketService;
 import ir.service.UserService;
-import jakarta.websocket.server.PathParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @Slf4j
 @Controller
@@ -37,17 +39,23 @@ public class TicketController {
     }
 
     @GetMapping
-    public String showAllTickets(Model model) {
+    public String showAllTickets(Model model, Principal principal) {
+        User user = userService.findByUsername(principal.getName());
+        if (user.getRoleSet().stream().anyMatch(role -> role.getRoleName() == Role.RoleName.ADMIN)){
+            model.addAttribute("tickets", ticketService.findAll());
+        } else {
+            model.addAttribute("tickets", ticketService.findByUser(user));
+        }
+
         model.addAttribute("ticket", new Ticket());
-        model.addAttribute("tickets", ticketService.findAll());
-        model.addAttribute("allUsers", userService.findAll());
+
         return "ticket";
     }
 
     @PostMapping
-    public String saveTicket(Ticket ticketForm, Model model, @ModelAttribute("status") TicketStatus status, @ModelAttribute("user") String username) {
+    public String saveTicket(Ticket ticketForm, Model model, @ModelAttribute("status") TicketStatus status, Principal principal) {
         try {
-            User user = userService.findByUsername(username);
+            User user = userService.findByUsername(principal.getName());
             Ticket ticket = Ticket.builder()
                     .title(ticketForm.getTitle())
                     .status(status)

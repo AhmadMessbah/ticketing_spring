@@ -1,8 +1,8 @@
 package ir.service.impl;
 
-import ir.model.Message;
-import ir.model.Ticket;
-import ir.model.User;
+import ir.model.entity.Message;
+import ir.model.entity.Ticket;
+import ir.model.entity.User;
 import ir.model.enums.TicketStatus;
 import ir.repository.MessageRepository;
 import ir.service.MessageService;

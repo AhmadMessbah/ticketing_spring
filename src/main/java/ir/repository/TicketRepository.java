@@ -1,7 +1,7 @@
 package ir.repository;
 
-import ir.model.Ticket;
-import ir.model.User;
+import ir.model.entity.Ticket;
+import ir.model.entity.User;
 import ir.model.enums.TicketStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

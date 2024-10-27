@@ -12,17 +12,12 @@
 
     <input type="text" name="ticketId" id="ticketId" th:value="${ticketId}" hidden="hidden">
 
-    <select name="username" id="username">
-        <option th:each="user : ${userList}" th:value="${user.username}" th:text="${user.username}"></option>
-    </select>
-
     <input type="submit" value="Save">
 </form>
 
 
-<!--<h2 th:dir="rtl" th:if="${messageList.isEmpty()}">No Content RTL</h2>-->
-<!--<h2 th:dir="ltr" th:if="${not messageList.isEmpty()}">No Content LTR</h2>-->
-<table>
+<h2 th:dir="ltr" th:if="${messageList.isEmpty()}">No Content</h2>
+<table th:if="${not messageList.isEmpty()}">
     <thead>
     <tr>
         <th>Id</th>
@@ -46,6 +41,9 @@
     </tr>
     </tbody>
 </table>
+
+<a th:href="@{/panel}">Panel</a>
+
 
 <script>
     function remove(id) {

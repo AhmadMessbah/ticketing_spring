@@ -1,4 +1,4 @@
-package ir.model;
+package ir.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;

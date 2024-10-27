@@ -1,8 +1,8 @@
 package ir.repository;
 
-import ir.model.Message;
-import ir.model.Ticket;
-import ir.model.User;
+import ir.model.entity.Message;
+import ir.model.entity.Ticket;
+import ir.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

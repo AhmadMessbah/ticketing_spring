@@ -3,7 +3,9 @@ package ir.config;
 
 import ir.model.entity.User;
 import ir.repository.UserRepository;
+import ir.service.CustomUserDetailsService;
 import ir.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,6 +29,11 @@ import java.util.stream.Collectors;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
+    private final CustomUserDetailsService customUserDetailsService;
+
+    public WebSecurityConfig(CustomUserDetailsService customUserDetailsService) {
+        this.customUserDetailsService = customUserDetailsService;
+    }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -78,22 +85,22 @@ public class WebSecurityConfig {
 
 
 
-        @Bean
-        public UserDetailsService userDetailsService(UserRepository userRepository) {
-            return username -> {
-                User user = userRepository.findByUsername(username);
-                if (user == null) {
-                    throw new UsernameNotFoundException("User not found");
-                }
-
-                Set<SimpleGrantedAuthority> authorities = user.getRoleSet().stream()
-                        .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))
-                        .collect(Collectors.toSet());
-
-                return new org.springframework.security.core.userdetails.User(
-                        user.getUsername(), user.getPassword(), authorities);
-            };
-        }
+//        @Bean
+//        public UserDetailsService userDetailsService(UserRepository userRepository) {
+//            return username -> {
+//                User user = userRepository.findByUsername(username);
+//                if (user == null) {
+//                    throw new UsernameNotFoundException("User not found");
+//                }
+//
+//                Set<SimpleGrantedAuthority> authorities = user.getRoleSet().stream()
+//                        .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))
+//                        .collect(Collectors.toSet());
+//
+//                return new org.springframework.security.core.userdetails.User(
+//                        user.getUsername(), user.getPassword(), authorities);
+//            };
+//        }
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {

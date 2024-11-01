@@ -31,7 +31,7 @@ public class RoleController {
             Role role =
                     Role
                             .builder()
-                            .roleName(Role.RoleName.OTHER)
+                            .name("OTHER")
                             .name(name)
                             .build();
 

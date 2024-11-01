@@ -63,8 +63,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findByRoleName(Role.RoleName roleName) {
-        return userRepository.findByRoleSetRoleName(roleName);
+    public List<User> findByRoleName(String roleName) {
+        return userRepository.findByRoleSetName(roleName);
     }
 
     @Override

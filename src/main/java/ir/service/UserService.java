@@ -13,6 +13,6 @@ public interface UserService {
     boolean existsByUsername(String username);
     List<User> findAll();
     List<User> findByRole(Role role);
-    List<User> findByRoleName(Role.RoleName roleName);
+    List<User> findByRoleName(String roleName);
     User findByUsernameAndPassword(String username, String password);
 }

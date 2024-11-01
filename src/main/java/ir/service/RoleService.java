@@ -8,6 +8,6 @@ public interface RoleService {
     void save(Role role);
     void update(Role role);
     void delete(String roleName);
-    Role findByRoleName(Role.RoleName roleName);
+    Role findByName(String roleName);
     List<Role> findAll();
 }

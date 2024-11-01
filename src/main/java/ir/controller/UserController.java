@@ -19,12 +19,10 @@ public class UserController
 {
     private final UserService userService;
     private final RoleService roleService;
-    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, RoleService roleService, PasswordEncoder passwordEncoder) {
+    public UserController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @GetMapping
@@ -37,11 +35,10 @@ public class UserController
     }
 
     @PostMapping()
-    public String saveUser(User user, @ModelAttribute("roleName")Role.RoleName roleName)
+    public String saveUser(User user, @ModelAttribute("roleName")String roleName)
     {
-        Role role = roleService.findByRoleName(roleName);
+        Role role = roleService.findByName(roleName);
         user.addRole(role);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.save(user);
         log.info("User Saved...!");
         return "redirect:users";
@@ -56,7 +53,7 @@ public class UserController
     }
 
     @GetMapping("/{roleName}")
-    public String findByRoleName(Model model, Role.RoleName roleName)
+    public String findByRoleName(Model model, String roleName)
     {
         List<User> userList = userService.findByRoleName(roleName);
         model.addAttribute("userList", userList);

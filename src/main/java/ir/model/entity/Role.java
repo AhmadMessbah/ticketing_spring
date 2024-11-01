@@ -17,11 +17,12 @@ import java.util.Set;
 @Table(name="role_tbl")
 public class Role {
     @Id
-    @Column(name="role_name", length = 30)
-    private RoleName roleName;
-
     @Column(name = "name", length = 30)
     private String name;
+
+    public Role(String name) {
+        this.name = name;
+    }
 
     @ManyToMany
     @JoinTable(
@@ -32,8 +33,4 @@ public class Role {
             inverseForeignKey = @ForeignKey(name = "fk_inverse_role_permission")
     )
     private Set<Permission> permissionSet;
-
-    public enum RoleName{
-        ADMIN, CUSTOMER, OTHER
-    }
 }

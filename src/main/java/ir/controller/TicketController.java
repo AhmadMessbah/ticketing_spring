@@ -41,7 +41,7 @@ public class TicketController {
     @GetMapping
     public String showAllTickets(Model model, Principal principal) {
         User user = userService.findByUsername(principal.getName());
-        if (user.getRoleSet().stream().anyMatch(role -> role.getRoleName() == Role.RoleName.ADMIN)){
+        if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("ADMIN"))){
             model.addAttribute("tickets", ticketService.findAll());
         } else {
             model.addAttribute("tickets", ticketService.findByUser(user));

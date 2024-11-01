@@ -30,9 +30,9 @@ public class PanelController {
         User user = userService.findByUsername(principal.getName());
         if (user == null) {
             return "redirect:/users";
-        } else if (user.getRoleSet().stream().anyMatch(role -> role.getRoleName() == Role.RoleName.ADMIN)) {
+        } else if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("ADMIN"))) {
             return "redirect:/admins";
-        } else if (user.getRoleSet().stream().anyMatch(role -> role.getRoleName() == Role.RoleName.CUSTOMER)) {
+        } else if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("CUSTOMER"))) {
             return "redirect:/customers";
         }
         return "index"; //"redirect:/login?error=role_not_found";

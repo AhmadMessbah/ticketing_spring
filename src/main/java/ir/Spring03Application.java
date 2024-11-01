@@ -1,10 +1,7 @@
 package ir;
 
-//import ir.model.entity.Message;
-//import ir.model.entity.Role;
-//import ir.model.entity.Ticket;
-//import ir.model.entity.User;
-//import ir.model.enums.TicketStatus;
+import ir.model.entity.Role;
+import ir.model.entity.User;
 import ir.service.MessageService;
 import ir.service.RoleService;
 import ir.service.TicketService;
@@ -13,7 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//import java.time.LocalDateTime;
+import java.util.Set;
+
 
 @Slf4j
 @SpringBootApplication
@@ -36,27 +34,23 @@ public class Spring03Application {
         log.info("Spring Boot Application Started");
 
 
-//        Role adminRole = new Role("ROLE_ADMIN");
-//        roleService.save(adminRole);
-//        log.info("Admin Role Saved");
+        Role adminRole = new Role("ADMIN");
+        roleService.save(adminRole);
+        log.info("Admin Role Saved");
 //
 //        Role userRole = new Role("ROLE_USER");
 //        roleService.save(userRole);
 //        log.info("User Role Saved");
 //
-//        User adminUser =
-//                User
-//                        .builder()
-//                        .username("ali")
-//                        .password("123456")
-//                        .firstName("Ali")
-//                        .lastName("Alipour")
-//                        .email("ali@gmail.com")
-//                        .phone("123456789")
-//                        .role(adminRole)
-//                        .build();
-//        userService.save(adminUser);
-//        log.info("Admin User Saved");
+        User adminUser =
+                User
+                        .builder()
+                        .username("ali")
+                        .password("123456")
+                        .roleSet(Set.of(adminRole))
+                        .build();
+        userService.save(adminUser);
+        log.info("Admin User Saved");
 //
 //        User userUser =
 //                User

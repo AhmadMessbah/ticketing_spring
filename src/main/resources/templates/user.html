@@ -1,60 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <title>user</title>
 </head>
 <body>
-<h1>Users</h1>
 
-<form th:action="@{/users}" th:method="post" th:object="${user}">
-  <input type="text" th:id="username" th:name="username" th:field="*{username}">
-  <input type="password" th:id="password" th:name="password" th:field="*{password}">
-    <select name="roleName" id="roleName">
-        <option th:each="role : ${roleList}" th:value="${role.name}" th:text="${role.name}"></option>
-    </select>
-
-  <input type="submit" value="Save">
-
+<form id="userForm" action="/rest/users">
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <input type="submit" value="Save"></input>
 </form>
 
-<h2 th:dir="ltr" th:if="${userList.isEmpty()}">No Content</h2>
-
-<table th:if="${not userList.isEmpty()}">
+<button id="refresh-table">Refresh Table</button>
+<table id="dataTable">
     <thead>
-    <tr>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Role</th>
-        <th>Locked</th>
-        <th> Operation</th>
-    </tr>
+    <tr id="tableHeader"></tr>
     </thead>
-    <tbody>
-    <tr th:each="user:${userList}">
-        <td th:text="${user.username}"></td>
-        <td>******</td>
-        <td th:text="${user.roleSet.size()}"></td>
-        <td th:text="${user.locked}"></td>
-        <td>
-            <button th:data-name="${user.username}" th:onclick="|remove(this.getAttribute('data-name'))|">Remove</button>
-        </td>
-    </tr>
-    </tbody>
+    <tbody id="tableBody"></tbody>
 </table>
 
-<a th:href="@{/panel}">Panel</a>
+<div id="toast-container"></div>
 
-
+<script src="/assets/js/submit-form.js"></script>
+<script src="/assets/js/script.js"></script>
 
 <script>
-    function remove(username){
-        fetch("/users/"+username,{
-            method:"DELETE"
+    submitForm("userForm", "POST",  callback, "submit");
+    submitForm("refresh-table", "GET", callback,"click", "/rest/users");
+
+    function displayTable(jsonArray, fieldList) {
+        // Clear the table
+        const tableHeader = document.getElementById('tableHeader');
+        const tableBody = document.getElementById('tableBody');
+        tableHeader.innerHTML = '';
+        tableBody.innerHTML = '';
+
+        // if (fields.length === 0) return [];
+
+        // Retrieve keys from the first object in the array
+
+        fieldList.forEach(field => {
+            const th = document.createElement('th');
+            th.textContent = field;
+            tableHeader.appendChild(th);
         });
-        window.location.replace("/users");
+
+        // Create table rows
+        jsonArray.forEach(item => {
+            const tr = document.createElement('tr');
+            fieldList.forEach(field => {
+                const td = document.createElement('td');
+                td.textContent = item[field] || '';
+                tr.appendChild(td);
+            });
+            tableBody.appendChild(tr);
+        });
     }
+
+
+    async function callback(jsonText) {
+        displayTable(jsonText, ["id", "title",  "completed"]);
+        console.log("Done")
+    }
+
 </script>
+
 
 </body>
 </html>

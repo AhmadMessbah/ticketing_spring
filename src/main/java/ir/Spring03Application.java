@@ -9,11 +9,13 @@ import ir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import java.util.Set;
 
 
 @Slf4j
+@EnableJpaRepositories
 @SpringBootApplication
 public class Spring03Application {
     private static RoleService roleService;

@@ -1,7 +1,6 @@
 package ir.controller;
 
 import ir.model.entity.Message;
-import ir.model.entity.Role;
 import ir.model.entity.Ticket;
 import ir.model.entity.User;
 import ir.model.enums.TicketStatus;
@@ -41,7 +40,7 @@ public class TicketController {
     @GetMapping
     public String showAllTickets(Model model, Principal principal) {
         User user = userService.findByUsername(principal.getName());
-        if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("ADMIN"))){
+        if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("ROLE_ADMIN"))){
             model.addAttribute("tickets", ticketService.findAll());
         } else {
             model.addAttribute("tickets", ticketService.findByUser(user));

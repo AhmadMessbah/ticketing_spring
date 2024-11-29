@@ -11,7 +11,7 @@
   <input type="text" th:id="username" th:name="username" th:field="*{username}">
   <input type="password" th:id="password" th:name="password" th:field="*{password}">
     <select name="roleName" id="roleName">
-        <option th:each="role : ${roleList}" th:value="${role.roleName}" th:text="${role.roleName}"></option>
+        <option th:each="role : ${roleList}" th:value="${role.name}" th:text="${role.name}"></option>
     </select>
 
   <input type="submit" value="Save">

@@ -40,28 +40,22 @@ public class MessageController {
 
     @PostMapping
     public String saveMessage(Message message, @ModelAttribute("ticketId") Long ticketId, Principal principal) {
-        try {
-            message.setTicket(ticketService.findById(ticketId));
-            message.setUser(userService.findByUsername(principal.getName()));
-            message.setDateTime(LocalDateTime.now());
-            messageService.save(message);
-            log.info("message Saved");
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
+        message.setTicket(ticketService.findById(ticketId));
+        message.setUser(userService.findByUsername(principal.getName()));
+        message.setDateTime(LocalDateTime.now());
+        messageService.save(message);
+        log.info("message Saved");
         return "redirect:/tickets/messages/" + ticketId;
     }
 
     @DeleteMapping(path = "/{messageId}")
     public String removeMessage(@PathVariable("messageId") long messageId) {
         Message message = messageService.findById(messageId);
-        try {
-            messageService.delete(messageId);
-            log.info("Message Removed");
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
+        messageService.delete(messageId);
+        log.info("Message Removed");
+
         return "redirect:/tickets/messages/" + message.getTicket().getId();
+//        return "redirect:/tickets";
     }
 
 

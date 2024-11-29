@@ -23,22 +23,20 @@ public class PanelController {
     }
 
     @GetMapping
-    public String panel(Model model) {
+    public String redirectToPanel(Model model, Principal principal) {
+
+//        System.out.println("panel .....");
+
+        User user = userService.findByUsername(principal.getName());
+        if (user == null) {
+            return "redirect:/users";
+        } else if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("ROLE_ADMIN"))) {
+            System.out.println("user is an admin");
+            return "redirect:/admins";
+        } else if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("ROLE_CUSTOMER"))) {
+            return "redirect:/customers";
+        }
         return "index";
     }
-//    public String redirectToPanel(Model model, Principal principal) {
-//
-//        System.out.println("panel .....");
-//
-//        User user = userService.findByUsername(principal.getName());
-//        if (user == null) {
-//            return "redirect:/users";
-//        } else if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("ADMIN"))) {
-//            return "redirect:/admins";
-//        } else if (user.getRoleSet().stream().anyMatch(role -> role.getName().equals("CUSTOMER"))) {
-//            return "redirect:/customers";
-//        }
-//        return "index"; //"redirect:/login?error=role_not_found";
-//    }
 
 }

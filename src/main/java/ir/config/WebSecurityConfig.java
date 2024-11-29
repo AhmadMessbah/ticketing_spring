@@ -1,30 +1,20 @@
 package ir.config;
 
 
-import ir.model.entity.User;
-import ir.repository.UserRepository;
+
 import ir.service.CustomUserDetailsService;
-import ir.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+
 
 @Configuration
 @EnableWebSecurity
@@ -41,10 +31,10 @@ public class WebSecurityConfig {
         http
                 .csrf(csrf-> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/","/register", "/panel", "/login", "/logout","/h2-console/**","/favicon.ico").permitAll()
-                        .requestMatchers("/admins/**","/users/**", "/roles/**").hasRole("ADMIN")
+                        .requestMatchers("/","/register", "/panel", "/login", "/logout","/h2-console/**","/favicon.ico","/monitoring/**").permitAll()
+                        .requestMatchers("/admins/**","/users/**", "/roles/**").hasAnyAuthority ("ROLE_ADMIN")
                         .requestMatchers("/customers/**").hasRole("CUSTOMER")
-                        .requestMatchers("/tickets/**", "/messages/**").hasAnyRole("ADMIN", "CUSTOMER")
+                        .requestMatchers("/tickets/**", "/messages/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_CUSTOMER")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form ->
@@ -107,9 +97,10 @@ public class WebSecurityConfig {
         return (web) -> web.ignoring().requestMatchers("/h2-console/**", "/");
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
+
 
 }

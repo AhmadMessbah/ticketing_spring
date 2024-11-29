@@ -26,15 +26,8 @@ public class RoleController {
     }
 
     @PostMapping
-    public String saveRole(@ModelAttribute(name = "name") String name) {
+    public String saveRole(Role role) {
         try{
-            Role role =
-                    Role
-                            .builder()
-                            .name("OTHER")
-                            .name(name)
-                            .build();
-
             roleService.save(role);
             log.info("Role Saved");
         }catch (Exception e) {
@@ -43,8 +36,8 @@ public class RoleController {
         return "redirect:/roles";
     }
 
-    @DeleteMapping(path = "/{roleName}")
-    public String removeRole(@PathVariable("roleName") String roleName) {
+    @DeleteMapping(path = "/{name}")
+    public String removeRole(@PathVariable("name") String roleName) {
         try{
             roleService.delete(roleName);
             log.info("Role Removed");

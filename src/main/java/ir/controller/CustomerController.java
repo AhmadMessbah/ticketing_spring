@@ -14,7 +14,6 @@ public class CustomerController {
     @GetMapping
     public String loadCustomerPage(Model model)
     {
-
         return "customer";
     }
 }

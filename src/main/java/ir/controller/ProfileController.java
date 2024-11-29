@@ -1,8 +1,6 @@
 package ir.controller;
 
-import ir.dto.ProfileDto;
-import ir.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
+
 
 public class ProfileController {
 //    private PersonService personService;

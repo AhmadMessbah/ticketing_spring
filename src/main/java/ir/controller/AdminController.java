@@ -16,7 +16,6 @@ public class AdminController {
     @GetMapping
     public String loadAdminPage(Model model, Principal principal)
     {
-        System.out.println(principal.getName());
         return "admin";
     }
 }

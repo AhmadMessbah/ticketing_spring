@@ -1,0 +1,258 @@
+09:07:25.848 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+09:07:25.895 [restartedMain] INFO  ir.Spring03Application - Starting Spring03Application using Java 20.0.2 with PID 197248 (D:\JAVA\MFT learning\projects\Spring\ticketing_spring\target\classes started by arbab in D:\JAVA\MFT learning\projects\Spring\ticketing_spring)
+09:07:25.896 [restartedMain] INFO  ir.Spring03Application - No active profile set, falling back to 1 default profile: "default"
+09:07:25.947 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+09:07:25.947 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+09:07:27.144 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+09:07:27.225 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72 ms. Found 4 JPA repository interfaces.
+09:07:28.227 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 80 (http)
+09:07:28.239 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-80"]
+09:07:28.242 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+09:07:28.243 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.30]
+09:07:28.299 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09:07:28.299 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2352 ms
+09:07:28.485 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+09:07:28.710 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:mft_db user=SA
+09:07:28.712 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+09:07:28.723 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:mft_db'
+09:07:28.978 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+09:07:29.055 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.4.10.Final
+09:07:29.096 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+09:07:29.383 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+09:07:30.666 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+09:07:30.733 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+09:07:31.419 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+09:07:31.587 [restartedMain] INFO  ir.aop.ExceptionHandler - addViewControllersTry/Catch -------> ok
+09:07:32.178 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoint(s) beneath base path '/monitoring'
+09:07:32.305 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2cbd226c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f4024a6, org.springframework.security.web.context.SecurityContextHolderFilter@7e974a00, org.springframework.security.web.header.HeaderWriterFilter@3a75dc43, org.springframework.security.web.authentication.logout.LogoutFilter@75b68e90, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@46942b86, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@52f031d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@313bb3d6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17161ffa, org.springframework.security.web.access.ExceptionTranslationFilter@13b42674, org.springframework.security.web.access.intercept.AuthorizationFilter@d3c1a45]
+09:07:32.305 [restartedMain] INFO  ir.aop.ExceptionHandler - securityFilterChainTry/Catch -------> ok
+09:07:32.307 [restartedMain] INFO  ir.aop.ExceptionHandler - webSecurityCustomizerTry/Catch -------> ok
+09:07:32.321 [restartedMain] INFO  ir.aop.ExceptionHandler - customizeTry/Catch -------> ok
+09:07:32.321 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/h2-console/**'], Ant [pattern='/h2-console/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+09:07:32.322 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Deferred [Mvc [pattern='/h2-console/**'], Ant [pattern='/h2-console/**']]
+09:07:32.322 [restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/'], Ant [pattern='/']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+09:07:32.322 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Will not secure Deferred [Mvc [pattern='/'], Ant [pattern='/']]
+09:07:32.994 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+09:07:33.061 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-80"]
+09:07:33.080 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 80 (http) with context path ''
+09:07:33.099 [restartedMain] INFO  ir.Spring03Application - Started Spring03Application in 7.633 seconds (process running for 8.785)
+09:07:33.109 [restartedMain] INFO  ir.Spring03Application - Spring Boot Application Started
+09:07:33.208 [restartedMain] INFO  ir.aop.ExceptionHandler - saveTry/Catch -------> ok
+09:07:33.208 [restartedMain] INFO  ir.aop.ExceptionHandler - saveTry/Catch -------> ok
+09:07:33.208 [restartedMain] INFO  ir.Spring03Application - Admin Role Saved
+09:07:33.331 [restartedMain] INFO  ir.aop.ExceptionHandler - existsUserByUsernameTry/Catch -------> ok
+09:07:33.483 [restartedMain] INFO  ir.aop.ExceptionHandler - saveTry/Catch -------> ok
+09:07:33.483 [restartedMain] INFO  ir.aop.ExceptionHandler - saveTry/Catch -------> ok
+09:07:33.483 [restartedMain] INFO  ir.Spring03Application - Admin User Saved
+09:07:33.780 [RMI TCP Connection(2)-172.18.224.1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:07:33.781 [RMI TCP Connection(2)-172.18.224.1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+09:07:33.783 [RMI TCP Connection(2)-172.18.224.1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+09:07:45.843 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /favicon.ico
+09:07:45.859 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /favicon.ico
+09:07:45.861 [http-nio-0.0.0.0-80-exec-3] WARN  o.s.web.servlet.PageNotFound - No mapping for GET /favicon.ico
+09:07:45.874 [http-nio-0.0.0.0-80-exec-3] INFO  ir.aop.ExceptionHandler - handleNoHandlerFoundExceptionTry/Catch -------> ok
+09:07:45.883 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:07:50.583 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring
+09:07:50.585 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring
+09:07:50.609 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:07:56.788 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:07:56.789 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:07:57.350 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:11:03.130 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:11:03.130 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:11:03.194 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:11:13.133 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:11:13.135 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:11:13.186 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:11:23.135 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:11:23.136 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:11:23.197 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:11:33.132 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:11:33.133 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:11:33.193 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:11:43.132 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:11:43.132 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:11:43.200 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:11:53.142 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:11:53.142 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:11:53.188 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:12:03.129 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:12:03.129 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:12:03.178 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:12:13.140 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:12:13.140 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:12:13.184 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:12:23.142 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:12:23.144 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:12:23.192 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:12:33.141 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:12:33.141 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:12:33.198 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:12:43.142 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:12:43.142 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:12:43.188 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:12:53.142 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:12:53.142 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:12:53.193 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:13:01.225 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /login
+09:13:01.225 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /login
+09:13:01.263 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:13:03.132 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:13:03.132 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:13:03.193 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:13:05.647 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing POST /login
+09:13:05.770 [http-nio-0.0.0.0-80-exec-3] INFO  ir.aop.ExceptionHandler - findByUsernameTry/Catch -------> ok
+09:13:05.770 [http-nio-0.0.0.0-80-exec-3] INFO  ir.aop.ExceptionHandler - loadUserByUsernameTry/Catch -------> ok
+09:13:05.886 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.a.d.DaoAuthenticationProvider - Authenticated user
+09:13:05.936 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Stored SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=ali, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]] to HttpSession [org.apache.catalina.session.StandardSessionFacade@5f7e4cb5]
+09:13:05.937 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.w.a.UsernamePasswordAuthenticationFilter - Set SecurityContextHolder to UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=ali, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]
+09:13:05.937 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.web.DefaultRedirectStrategy - Redirecting to /panel
+09:13:05.942 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /panel
+09:13:05.944 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /panel
+09:13:05.945 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=ali, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]]
+09:13:05.951 [http-nio-0.0.0.0-80-exec-5] INFO  ir.aop.ExceptionHandler - findByIdTry/Catch -------> ok
+09:13:05.951 [http-nio-0.0.0.0-80-exec-5] INFO  ir.aop.ExceptionHandler - findByUsernameTry/Catch -------> ok
+09:13:05.951 [http-nio-0.0.0.0-80-exec-5] INFO  ir.aop.ExceptionHandler - redirectToPanelTry/Catch -------> ok
+09:13:05.967 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /admins
+09:13:05.967 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=ali, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]]
+09:13:05.967 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /admins
+09:13:05.967 [http-nio-0.0.0.0-80-exec-4] INFO  ir.aop.ExceptionHandler - loadAdminPageTry/Catch -------> ok
+09:13:07.891 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /roles
+09:13:07.892 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.s.w.c.HttpSessionSecurityContextRepository - Retrieved SecurityContextImpl [Authentication=UsernamePasswordAuthenticationToken [Principal=org.springframework.security.core.userdetails.User [Username=ali, Password=[PROTECTED], Enabled=true, AccountNonExpired=true, CredentialsNonExpired=true, AccountNonLocked=true, Granted Authorities=[ROLE_ADMIN]], Credentials=[PROTECTED], Authenticated=true, Details=WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null], Granted Authorities=[ROLE_ADMIN]]]
+09:13:07.893 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /roles
+09:13:07.899 [http-nio-0.0.0.0-80-exec-2] INFO  ir.aop.ExceptionHandler - findAllTry/Catch -------> ok
+09:13:07.899 [http-nio-0.0.0.0-80-exec-2] INFO  ir.aop.ExceptionHandler - findAllTry/Catch -------> ok
+09:13:07.899 [http-nio-0.0.0.0-80-exec-2] INFO  ir.aop.ExceptionHandler - showFormTry/Catch -------> ok
+09:13:13.129 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:13:13.129 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:13:13.177 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:13:23.132 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:13:23.132 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:13:23.180 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:13:33.138 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:13:33.138 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:13:33.185 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:13:43.134 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:13:43.134 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:13:43.195 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:13:53.132 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:13:53.132 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:13:53.179 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:14:03.129 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:14:03.130 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:14:03.189 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:14:13.135 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:14:13.135 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:14:13.183 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:14:23.137 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:14:23.137 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:14:23.188 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:14:33.138 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:14:33.138 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:14:33.186 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:14:43.136 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:14:43.136 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:14:43.184 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:14:53.133 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:14:53.134 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:14:53.190 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:15:03.138 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:15:03.138 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:15:03.190 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:15:13.132 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:15:13.132 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:15:13.195 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:15:23.133 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:15:23.133 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:15:23.178 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:15:33.140 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:15:33.140 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:15:33.188 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:15:43.140 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:15:43.140 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:15:43.188 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:15:53.137 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:15:53.137 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:15:53.184 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:16:03.135 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:16:03.135 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:16:03.200 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:16:13.144 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:16:13.144 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:16:13.192 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:16:23.134 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:16:23.134 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:16:23.183 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:16:33.140 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:16:33.140 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:16:33.187 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:16:43.129 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:16:43.129 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:16:43.177 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:16:53.137 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:16:53.137 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:16:53.185 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:17:03.129 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:17:03.129 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:17:03.177 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:17:13.133 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:17:13.133 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:17:13.181 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:17:23.139 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:17:23.139 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:17:23.186 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:17:33.142 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:17:33.142 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:17:33.205 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:17:43.131 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:17:43.131 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:17:43.194 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:17:53.138 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:17:53.138 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:17:53.186 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:18:03.137 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:18:03.137 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:18:03.185 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:18:13.139 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:18:13.139 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:18:13.186 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:18:23.129 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:18:23.129 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:18:23.176 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:18:33.135 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:18:33.136 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:18:33.183 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:18:43.128 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:18:43.128 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:18:43.176 [http-nio-0.0.0.0-80-exec-6] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:18:53.137 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:18:53.137 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:18:53.185 [http-nio-0.0.0.0-80-exec-1] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:19:03.141 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:19:03.141 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:19:03.204 [http-nio-0.0.0.0-80-exec-3] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:19:13.132 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:19:13.132 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:19:13.180 [http-nio-0.0.0.0-80-exec-5] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:19:23.140 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:19:23.140 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:19:23.188 [http-nio-0.0.0.0-80-exec-4] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:19:33.145 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:19:33.145 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:19:33.203 [http-nio-0.0.0.0-80-exec-2] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:19:43.138 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:19:43.138 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:19:43.185 [http-nio-0.0.0.0-80-exec-10] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:19:53.134 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:19:53.134 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:19:53.176 [http-nio-0.0.0.0-80-exec-7] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:20:03.134 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:20:03.134 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:20:03.184 [http-nio-0.0.0.0-80-exec-8] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:20:13.129 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Securing GET /monitoring/prometheus
+09:20:13.129 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.security.web.FilterChainProxy - Secured GET /monitoring/prometheus
+09:20:13.176 [http-nio-0.0.0.0-80-exec-9] DEBUG o.s.s.w.a.AnonymousAuthenticationFilter - Set SecurityContextHolder to anonymous SecurityContext
+09:20:22.008 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+09:20:22.023 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-224]
+09:20:22.023 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+09:20:22.023 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

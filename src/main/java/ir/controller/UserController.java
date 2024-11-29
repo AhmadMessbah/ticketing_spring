@@ -5,7 +5,6 @@ import ir.model.entity.User;
 import ir.service.RoleService;
 import ir.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +35,7 @@ public class UserController
 
     @PostMapping()
     public String saveUser(User user, @ModelAttribute("roleName")String roleName)
-    {
+     {
         Role role = roleService.findByName(roleName);
         user.addRole(role);
         userService.save(user);

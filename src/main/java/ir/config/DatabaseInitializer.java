@@ -1,13 +1,6 @@
 package ir.config;
 
-//import ir.model.entity.Role;
-//import ir.model.entity.User;
-//import ir.repository.RoleRepository;
-//import ir.repository.UserRepository;
-//import org.springframework.boot.CommandLineRunner;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 //@Configuration
 public class DatabaseInitializer {

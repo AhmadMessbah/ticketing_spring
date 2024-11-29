@@ -34,14 +34,14 @@ public class Spring03Application {
         log.info("Spring Boot Application Started");
 
 
-        Role adminRole = new Role("ADMIN");
+        Role adminRole =
+                Role
+                        .builder()
+                        .name("ROLE_ADMIN")
+                        .build();
         roleService.save(adminRole);
         log.info("Admin Role Saved");
-//
-//        Role userRole = new Role("ROLE_USER");
-//        roleService.save(userRole);
-//        log.info("User Role Saved");
-//
+
         User adminUser =
                 User
                         .builder()

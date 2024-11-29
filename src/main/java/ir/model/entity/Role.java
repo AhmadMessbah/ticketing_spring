@@ -20,11 +20,7 @@ public class Role {
     @Column(name = "name", length = 30)
     private String name;
 
-    public Role(String name) {
-        this.name = name;
-    }
-
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "role_permission_tbl",
             joinColumns = @JoinColumn(name = "role_name"),

@@ -31,7 +31,7 @@ public class WebSecurityConfig {
         http
                 .csrf(csrf-> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/","/register", "/panel", "/login", "/logout","/h2-console/**","/favicon.ico","/monitoring/**").permitAll()
+                        .requestMatchers("/","/register", "/panel", "/login", "/logout","/h2-console/**","/favicon.ico","/monitoring/**", "/assets/**").permitAll()
                         .requestMatchers("/admins/**","/users/**", "/roles/**").hasAnyAuthority ("ROLE_ADMIN")
                         .requestMatchers("/customers/**").hasRole("CUSTOMER")
                         .requestMatchers("/tickets/**", "/messages/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_CUSTOMER")
@@ -94,7 +94,7 @@ public class WebSecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/h2-console/**", "/");
+        return (web) -> web.ignoring().requestMatchers("/h2-console/**", "/","/assets/**");
     }
 
 //    @Bean

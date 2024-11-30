@@ -49,6 +49,7 @@ public class Spring03Application {
                         .builder()
                         .username("ali")
                         .password("123456")
+                        .locked(false)
                         .roleSet(Set.of(adminRole))
                         .build();
         userService.save(adminUser);

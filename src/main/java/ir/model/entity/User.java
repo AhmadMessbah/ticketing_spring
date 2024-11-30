@@ -1,6 +1,7 @@
 package ir.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class User{
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
+    @JsonIgnore
     @Column(name = "password", nullable = false)
     private String password;
 

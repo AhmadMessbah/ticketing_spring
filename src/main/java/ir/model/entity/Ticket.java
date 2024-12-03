@@ -31,7 +31,14 @@ public class Ticket {
 
     @Column(name="date_time")
     private LocalDateTime dateTime;
-//    todo : group
+
+    @Column(name = "score")
+    private Integer score;
+
+    @ManyToOne
+    @JoinColumn(name = "section_id")
+    private Section section;
+
 
     @OneToMany(mappedBy = "ticket")
     private List<Message> messageList;

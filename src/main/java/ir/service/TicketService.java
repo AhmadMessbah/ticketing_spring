@@ -1,5 +1,6 @@
 package ir.service;
 
+import ir.model.entity.Section;
 import ir.model.entity.Ticket;
 import ir.model.entity.User;
 import ir.model.enums.TicketStatus;
@@ -16,4 +17,7 @@ public interface TicketService {
     List<Ticket> findByUserUsername(String username);
     List<Ticket> findByStatus(TicketStatus status);
     List<Ticket> findByTitleContains(String title);
+    List<Ticket> findBySection(Section section);
+    List<Ticket> findByScoreLessThan(Integer score);
+
 }

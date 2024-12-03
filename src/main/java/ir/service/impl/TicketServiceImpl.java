@@ -1,5 +1,6 @@
 package ir.service.impl;
 
+import ir.model.entity.Section;
 import ir.model.entity.Ticket;
 import ir.model.entity.User;
 import ir.model.enums.TicketStatus;
@@ -60,5 +61,15 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public List<Ticket> findByTitleContains(String title) {
         return ticketRepository.findByTitleIsLikeOrderByDateTime("%" + title + "%");
+    }
+
+    @Override
+    public List<Ticket> findBySection(Section section) {
+        return ticketRepository.findBySection_IdOrderByDateTime(section.getId());
+    }
+
+    @Override
+    public List<Ticket> findByScoreLessThan(Integer score) {
+        return ticketRepository.findByScoreIsLessThanEqualOrderByDateTime(score);
     }
 }

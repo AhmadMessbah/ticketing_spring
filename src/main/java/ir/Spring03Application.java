@@ -54,6 +54,7 @@ public class Spring03Application {
                         .build();
         userService.save(adminUser);
         log.info("Admin User Saved");
+
 //
 //        User userUser =
 //                User

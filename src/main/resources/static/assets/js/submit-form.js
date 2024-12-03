@@ -23,7 +23,7 @@ async function submitForm(elementId, method, callbackFunction, eventType, url = 
             const data = await response.json();
 
             if (response.status === 200 || response.status === 201) {
-                showToast("info", "Done");
+                showToast("info", response.headers.get("Message"));
                 await callbackFunction(data);
             } else {
                 showToast("error", data.message);                

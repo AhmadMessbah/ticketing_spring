@@ -32,6 +32,9 @@ public class Ticket {
     @Column(name="date_time")
     private LocalDateTime dateTime;
 
+    @Column(name = "score")
+    private Integer score;
+
     @ManyToOne
     @JoinColumn(name = "section_id")
     private Section section;

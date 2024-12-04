@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/submit-form.js"></script>
+    <title>User Management</title>
+    <style>
+        .modal {
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 40%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<form id="userForm" action="/rest/users">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="submit" value="Save">
+</form>
+
+<button id="refresh-table">Refresh Table</button>
+<table id="dataTable">
+    <thead>
+    <tr id="tableHeader"></tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<!-- Toast Container -->
+<div id="toast-container"></div>
+
+<!-- Modal for Editing -->
+<div id="editModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <form id="editForm">
+            <label for="editUsername">Username:</label>
+            <input type="text" id="editUsername" name="username" required>
+            <br>
+            <label for="editPassword">Username:</label>
+            <input type="password" id="editPassword" name="password" required>
+            <br>
+            <label for="editLocked">Locked:</label>
+            <select id="editLocked" name="locked">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <br>
+            <label for="editRoles">Roles:</label>
+            <input type="text" id="editRoles" name="roleSet" required>
+            <br>
+            <input type="hidden" id="editUserId" name="id">
+            <button type="button" id="saveChanges">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<script src="/assets/js/submit-form.js"></script>
+<script src="/assets/js/script.js"></script>
+
+<script>
+    // Form submission and table refresh logic
+    submitForm("userForm", "POST", callback, "submit");
+    submitForm("refresh-table", "GET", callback, "click", "/rest/users");
+
+    function displayTable(jsonArray, fieldList) {
+        // Clear the table
+        const tableHeader = document.getElementById('tableHeader');
+        const tableBody = document.getElementById('tableBody');
+        tableHeader.innerHTML = '';
+        tableBody.innerHTML = '';
+
+        // Create table headers
+        fieldList.forEach(field => {
+            const th = document.createElement('th');
+            th.textContent = field;
+            tableHeader.appendChild(th);
+        });
+
+        // Add headers for buttons
+        const actionTh = document.createElement('th');
+        actionTh.textContent = 'Actions';
+        tableHeader.appendChild(actionTh);
+
+        // Create table rows
+        jsonArray.forEach(item => {
+            const tr = document.createElement('tr');
+
+            // Populate fields
+            fieldList.forEach(field => {
+                const td = document.createElement('td');
+                if (field === 'locked') {
+                    td.textContent = item[field] === true ? 'Yes' : 'No'; // Display Yes/No for boolean fields
+                } else {
+                    td.textContent = item[field] || ''; // Default rendering for other fields
+                }
+                tr.appendChild(td);
+            });
+
+            // Add action buttons
+            const actionTd = document.createElement('td');
+
+            // Remove button
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Remove';
+            removeBtn.onclick = async () => {
+                try {
+                    const response = await fetch(`/rest/users/${item.username}`, { method: 'DELETE' });
+                    if (response.ok) {
+                        // alert('User removed successfully!');
+                        document.getElementById('refresh-table').click(); // Refresh table
+                    } else {
+                        alert('Failed to remove user.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            };
+            actionTd.appendChild(removeBtn);
+
+            // Edit button
+            const editBtn = document.createElement('button');
+            editBtn.textContent = 'Edit';
+            editBtn.onclick = () => {
+                // Populate modal form with existing data
+                document.getElementById('editUsername').value = item.username;
+                document.getElementById('editPassword').value = item.password;
+                document.getElementById('editLocked').value = item.locked;
+                document.getElementById('editRoles').value = item.roleSet.join(', '); // Convert array to comma-separated string
+
+
+                // Show modal
+                document.getElementById('editModal').style.display = 'block';
+            };
+            actionTd.appendChild(editBtn);
+
+            tr.appendChild(actionTd);
+            tableBody.appendChild(tr);
+        });
+    }
+
+    // Close modal
+    document.getElementById('closeModal').onclick = () => {
+        document.getElementById('editModal').style.display = 'none';
+    };
+
+    // Save changes from modal
+    document.getElementById('saveChanges').onclick = async () => {
+        const username = document.getElementById('editUsername').value;
+        const updatedData = {
+            username: document.getElementById('editUsername').value,
+            password: document.getElementById('editPassword').value,
+            locked: document.getElementById('editLocked').value === 'true',
+            roleSet: document.getElementById('editRoles').value.split(',').map(role => role.trim()) // Convert back to array
+        };
+
+        try {
+            const response = await fetch(`/rest/users/${username}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updatedData)
+            });
+
+            if (response.ok) {
+                // alert('User updated successfully!');
+                document.getElementById('editModal').style.display = 'none';
+                document.getElementById('refresh-table').click(); // Refresh table
+            } else {
+                alert('Failed to update user.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    async function callback(jsonText) {
+        console.log("Received data:", jsonText);
+
+        // Simplify 'roleSet'
+        jsonText.forEach(user => {
+            user.roleSet = user.roleSet.map(role => role.name); // Flatten roles (adjust according to your data)
+        });
+
+        displayTable(jsonText, ["username", "locked", "roleSet"]);
+        console.log("Done");
+    }
+</script>
+
+</body>
+</html>

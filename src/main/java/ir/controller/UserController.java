@@ -30,7 +30,7 @@ public class UserController
         model.addAttribute("user", new User());
         model.addAttribute("roleList", roleService.findAll());
         model.addAttribute("userList", userService.findAll());
-        return "user";
+        return "user2";
     }
 
     @PostMapping()

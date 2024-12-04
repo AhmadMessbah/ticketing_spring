@@ -17,7 +17,7 @@ async function submitForm(elementId, method, callbackFunction, eventType, url = 
             }
             try{
             const response = await fetch(url, options);
-            console.log("Mesage :"+ response.status);
+            console.log("Message :"+ response.status);
 
 
             const data = await response.json();

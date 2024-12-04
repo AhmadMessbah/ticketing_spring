@@ -29,4 +29,11 @@ public class Role {
             inverseForeignKey = @ForeignKey(name = "fk_inverse_role_permission")
     )
     private Set<Permission> permissionSet;
+
+
+
+    // Constructor to handle deserialization from string
+    public Role(String name) {
+        this.name = name;
+    }
 }

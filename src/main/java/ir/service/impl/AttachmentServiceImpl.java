@@ -21,9 +21,10 @@ public class AttachmentServiceImpl implements AttachmentService {
     }
     @Override
     public void save(Attachment attachment) {
-        if (!Objects.equals(attachment.getTicket().getStatus().toString(), "closed")){
-            attachmentRepository.save(attachment);
-        };
+//        if (!Objects.equals(attachment.getTicket().getStatus().toString(), "closed")){
+//            attachmentRepository.save(attachment);
+//        };
+        attachmentRepository.save(attachment);
 
     }
 
